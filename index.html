@@ -13,10 +13,16 @@
     <button onclick="iniciarJuego(6)">Medio (6x6)</button>
     <button onclick="iniciarJuego(9)">Difícil (9x9)</button>
   </div>
+  <div style="margin-top:10px;">
+    <button onclick="comprobarTablero()">Finalizar</button>
+    <button onclick="resolverTablero()">Resolver</button>
+  </div>
+  <div style="margin:10px 0; font-size:20px; font-weight:bold;">
+    Tiempo: <span id="timer">00:00</span>
+  </div>
 
   <div id="sudoku-container"></div>
 
-  <!-- 🔹 Importante: que se cargue al final -->
   <script src="renderer.js"></script>
 </body>
 </html>

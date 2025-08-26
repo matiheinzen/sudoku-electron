@@ -1,0 +1,32 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #f3f3f3;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+#menu button {
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+#sudoku-container {
+  margin: 20px auto;
+  display: grid;
+  gap: 2px;
+}
+
+.cell {
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  text-align: center;
+  border: 1px solid #333;
+  background: white;
+}

@@ -1,130 +1,176 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    background: #f9f9f9;
-    color: #333;
-  }
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background: #f9f9f9;
+  color: #333;
+}
 
-  /* Contenedor principal fila */
+/* Contenedor principal fila */
+.contenedor-principal {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  min-height: 80vh;
+  flex-wrap: wrap;
+}
+
+/* Columnas laterales y central */
+.col-lateral {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  min-width: 180px;
+  max-width: 220px;
+  flex: 1;
+}
+
+.col-central {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 350px;
+  flex: 2;
+}
+
+/* Título principal */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  user-select: none;
+}
+
+/* Botones */
+button {
+  padding: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: 2px solid #007BFF;
+  border-radius: 6px;
+  background-color: white;
+  color: #007BFF;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+  background-color: #007BFF;
+  color: white;
+}
+
+/* Sudoku container */
+#sudoku-container {
+  display: grid;
+  gap: 2px;
+  user-select: none;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+#sudoku-container input {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Celdas fijas */
+.fijo {
+  background-color: #e1e1e1;
+  font-weight: bold;
+  color: #555;
+}
+
+/* Celdas pista */
+.pista {
+  background-color: #dff0d8;
+  color: #3c763d;
+}
+
+/* Mensaje */
+#mensaje {
+  margin-top: 15px;
+  font-weight: bold;
+  min-height: 1.5em;
+  text-align: center;
+}
+
+/* Timer */
+#timer-container {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Estadísticas */
+.estadisticas {
+  margin-top: 30px;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.estadisticas p {
+  margin: 6px 0;
+}
+
+/* Títulos de secciones */
+.col-lateral h2 {
+  margin-bottom: 15px;
+  text-align: center;
+  user-select: none;
+}
+
+/* ---------------------- */
+/* 🔁 Responsive Design */
+/* ---------------------- */
+@media (max-width: 768px) {
   .contenedor-principal {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 20px;
-    min-height: 80vh;
-  }
-
-  /* Columnas laterales y central */
-  .col-lateral {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 8px rgba(0,0,0,0.1);
-    min-width: 180px;
-    max-width: 220px;
-  }
-
-  /* Columna central Sudoku */
-  .col-central {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 8px rgba(0,0,0,0.1);
-    display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 350px;
   }
 
-  /* Título principal */
-  h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    user-select: none;
-  }
-
-  /* Botones */
-  button {
-    padding: 10px;
-    font-size: 1rem;
-    cursor: pointer;
-    border: 2px solid #007BFF;
-    border-radius: 6px;
-    background-color: white;
-    color: #007BFF;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-
-  button:hover {
-    background-color: #007BFF;
-    color: white;
-  }
-
-  /* Sudoku container */
-  #sudoku-container {
-    display: grid;
-    gap: 2px;
-    user-select: none;
-    justify-content: center;
-    margin-top: 10px;
+  .col-lateral, .col-central {
+    width: 90%;
+    min-width: auto;
+    max-width: none;
   }
 
   #sudoku-container input {
-    width: 40px;
-    height: 40px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
   }
 
-  /* Celdas fijas */
-  .fijo {
-    background-color: #e1e1e1;
-    font-weight: bold;
-    color: #555;
+  button {
+    font-size: 0.9rem;
+    padding: 8px;
   }
 
-  /* Celdas pista */
-  .pista {
-    background-color: #dff0d8;
-    color: #3c763d;
-  }
-
-  /* Mensaje */
-  #mensaje {
-    margin-top: 15px;
-    font-weight: bold;
-    min-height: 1.5em;
-    text-align: center;
-  }
-
-  /* Timer */
   #timer-container {
-    font-size: 1.3rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-align: center;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #sudoku-container input {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
   }
 
-  /* Estadísticas */
-  .estadisticas {
-    margin-top: 30px;
-    font-size: 0.95rem;
-    color: #666;
+  button {
+    font-size: 0.8rem;
+    padding: 6px;
   }
-
-  .estadisticas p {
-    margin: 6px 0;
-  }
-
-  /* Títulos de secciones */
-  .col-lateral h2 {
-    margin-bottom: 15px;
-    text-align: center;
-    user-select: none;
-  }
+}

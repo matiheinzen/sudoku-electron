@@ -1,8 +1,12 @@
-require("electron-reload")(__dirname, {
-  electron: require(`${__dirname}/node_modules/electron`)
-});
 const { app, BrowserWindow } = require("electron");
 const path = require("path");
+
+// Solo recargar en desarrollo
+if (!app.isPackaged) {
+  require("electron-reload")(__dirname, {
+    electron: path.join(__dirname, "node_modules", ".bin", "electron")
+  });
+}
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -10,8 +14,8 @@ function createWindow() {
     height: 700,
     webPreferences: {
       nodeIntegration: true,
-      contextIsolation: false,
-    },
+      contextIsolation: false
+    }
   });
 
   win.loadFile("index.html");

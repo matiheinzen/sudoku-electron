@@ -6,22 +6,43 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Sudoku</h1>
+ <h1>Sudoku</h1>
+<div class="estadisticas">
+  <h1>Para comenzar a jugar primero seleccione un nivel</h1>
+</div>
+  <div class="contenedor-principal">
 
-  <div id="menu">
-    <button onclick="iniciarJuego(3)">Fácil (3x3)</button>
-    <button onclick="iniciarJuego(6)">Medio (6x6)</button>
-    <button onclick="iniciarJuego(9)">Difícil (9x9)</button>
-  </div>
-  <div style="margin-top:10px;">
-    <button onclick="comprobarTablero()">Finalizar</button>
-    <button onclick="resolverTablero()">Resolver</button>
-  </div>
-  <div style="margin:10px 0; font-size:20px; font-weight:bold;">
-    Tiempo: <span id="timer">00:00</span>
-  </div>
+    <!-- Izquierda: Niveles -->
+    <section class="col-lateral">
+      <h2>Niveles</h2>
+      <button onclick="iniciarJuego('facil')">Nuevo Fácil</button>
+      <button onclick="iniciarJuego('medio')">Nuevo Medio</button>
+      <button onclick="iniciarJuego('dificil')">Nuevo Difícil</button>
+    </section>
 
-  <div id="sudoku-container"></div>
+    <!-- Centro: Sudoku y timer -->
+    <section class="col-central">
+      <div id="timer-container" style="display:none;">
+        <span id="timer">00:00</span>
+      </div>
+      <div id="sudoku-container"></div>
+      <p id="mensaje"></p>
+    </section>
+
+    <!-- Derecha: controles y estadísticas -->
+    <section class="col-lateral">
+      <h2>Controles</h2>
+      <button onclick="darPista()">Dar Pista</button>
+      <button onclick="resolverTablero()">Resolver</button>
+      <button onclick="comprobarTablero()">Comprobar</button>
+
+      <div class="estadisticas">
+        <h2>Estadisticas</h2>
+        <p>Partidas jugadas: <span id="jugadas">0</span></p>
+        <p>Finalizadas correctamente: <span id="correctas">0</span></p>
+        <p>Resueltas automáticamente: <span id="resueltas">0</span></p>
+      </div>
+    </section>
 
   <script src="renderer.js"></script>
 </body>

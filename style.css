@@ -1,32 +1,130 @@
 body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  background: #f3f3f3;
-  margin: 0;
-  padding: 20px;
-}
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background: #f9f9f9;
+    color: #333;
+  }
 
-h1 {
-  margin-bottom: 20px;
-}
+  /* Contenedor principal fila */
+  .contenedor-principal {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    min-height: 80vh;
+  }
 
-#menu button {
-  margin: 5px;
-  padding: 10px 20px;
-  font-size: 16px;
-}
+  /* Columnas laterales y central */
+  .col-lateral {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    min-width: 180px;
+    max-width: 220px;
+  }
 
-#sudoku-container {
-  margin: 20px auto;
-  display: grid;
-  gap: 2px;
-}
+  /* Columna central Sudoku */
+  .col-central {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 350px;
+  }
 
-.cell {
-  width: 40px;
-  height: 40px;
-  font-size: 18px;
-  text-align: center;
-  border: 1px solid #333;
-  background: white;
-}
+  /* Título principal */
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    user-select: none;
+  }
+
+  /* Botones */
+  button {
+    padding: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 2px solid #007BFF;
+    border-radius: 6px;
+    background-color: white;
+    color: #007BFF;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #007BFF;
+    color: white;
+  }
+
+  /* Sudoku container */
+  #sudoku-container {
+    display: grid;
+    gap: 2px;
+    user-select: none;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  #sudoku-container input {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  /* Celdas fijas */
+  .fijo {
+    background-color: #e1e1e1;
+    font-weight: bold;
+    color: #555;
+  }
+
+  /* Celdas pista */
+  .pista {
+    background-color: #dff0d8;
+    color: #3c763d;
+  }
+
+  /* Mensaje */
+  #mensaje {
+    margin-top: 15px;
+    font-weight: bold;
+    min-height: 1.5em;
+    text-align: center;
+  }
+
+  /* Timer */
+  #timer-container {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  /* Estadísticas */
+  .estadisticas {
+    margin-top: 30px;
+    font-size: 0.95rem;
+    color: #666;
+  }
+
+  .estadisticas p {
+    margin: 6px 0;
+  }
+
+  /* Títulos de secciones */
+  .col-lateral h2 {
+    margin-bottom: 15px;
+    text-align: center;
+    user-select: none;
+  }

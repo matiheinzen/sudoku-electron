@@ -58,7 +58,7 @@
     let celdasVacias = Math.floor(size * size * porcentajeVacio);
     eliminarCeldas(tablero, celdasVacias);
 
-    for (let i = 0; i < size; i++) {
+    for (let i = 0; i < size; i++) { //creacion de filas(i) y columnas(j) por tablero
       for (let j = 0; j < size; j++) {
         const cell = document.createElement("input");
         cell.type = "text";
@@ -85,7 +85,7 @@
     return grid;
   }
 
-  function resolverBacktracking(grid) {
+  function resolverBacktracking(grid) { //aca se verifica si los numeros son validos, no superiores a 1 digito
     for (let row = 0; row < size; row++) {
       for (let col = 0; col < size; col++) {
         if (grid[row][col] === 0) {
@@ -122,7 +122,7 @@
     return true;
   }
 
-  function eliminarCeldas(grid, cantidad) {
+  function eliminarCeldas(grid, cantidad) {//se eliminan elatoriamente los cuadros, un 40 a 50% del tablero
     let vaciadas = 0;
     while (vaciadas < cantidad) {
       let i = Math.floor(Math.random() * size);
@@ -134,8 +134,8 @@
     }
   }
 
-  function comprobarTablero() {
-    if (resueltaAutomaticamente) {
+  function comprobarTablero() {//permite comprobar si el tablero se hizo correctamente
+    if (resueltaAutomaticamente) {//veriffica que no se haya resulto con el automatico
       clearInterval(timerInterval);
       document.getElementById("mensaje").textContent =
         "El juego fue resuelto automáticamente, partida finalizada.";
@@ -161,7 +161,7 @@
     }
   }
 
-  function resolverTablero() {
+  function resolverTablero() {//resuleve el tablero automaticamente
     const inputs = document.querySelectorAll("#sudoku-container input");
     inputs.forEach(input => {
       let i = parseInt(input.dataset.row);
@@ -178,7 +178,7 @@
     document.getElementById("mensaje").style.color = "blue";
   }
 
-  function darPista() {
+  function darPista() {//genera las pistas en para colocar en los espacios vacios
     if (pistasUsadas >= pistasMaximas) {
       document.getElementById("mensaje").textContent = "Ya usaste todas tus pistas.";
       document.getElementById("mensaje").style.color = "red";
@@ -201,7 +201,7 @@
     }
   }
 
-  function iniciarTimer() {
+  function iniciarTimer() {//inicia el timer cuando comienza el juego
     timerInterval = setInterval(() => {
       segundos++;
       let min = String(Math.floor(segundos / 60)).padStart(2, "0");
@@ -210,7 +210,7 @@
     }, 1000);
   }
 
-  function actualizarEstadisticas() {
+  function actualizarEstadisticas() {//muestra las estadisticas de juego luego de fianlizada la primer partida
     document.getElementById("jugadas").textContent = partidasJugadas;
     document.getElementById("correctas").textContent = partidasCorrectas;
     document.getElementById("resueltas").textContent = partidasResueltas;

@@ -10,8 +10,8 @@ if (!app.isPackaged) {
 
 function createWindow() {
   const win = new BrowserWindow({
-    width: 900,
-    height: 700,
+    width: 1200,
+    height: 750,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false
